@@ -20,6 +20,7 @@
             <li><a href=" Customer_Upload"><i class="fa fa-upload"></i> Upload Property</a></li>
             <li><a href="Customer_Edit "><i class="fa fa-edit"></i> Edit Property</a></li>
             <li><a href="Customer_Delete "> <i class="fa fa-trash"></i> Delete Post</a></li>
+            <li><a href="/logout "> <i class="fa fa-sign-out"></i> LogOut</a></li>
             
           </ul>
         </nav>
@@ -32,7 +33,7 @@
 	
 <div class="option">
 	<select id="p">
-	  <option value="buy">Buy</option>
+	  <option value="buy" >Buy</option>
 	  <option value="rental">Rental</option>
 	</select>
 
@@ -64,16 +65,29 @@
 
  <center>
 <section >
- 
+    <% for(var i=0; i < propertylist.length; i++){ %>
 <div class="responsive" >
             <div class="gallery">
-        
-            <button id="close-image" name=""  ><img src="1.jpg">Price: 19,00000<br><br>Kuril,Kuratuli,Dhaka<br><br>Appartment<br><br>
-            	<i class="fa fa-bed"></i>  6 <i class="fa fa-bath"> 4</i> &#9949; 80 sq. ft 
-            </button><br>
+
+
+        <form method="post" action="/home/Property_details/<%= propertylist[i].property_id %>">
+
+            <button style="border: 3px solid #ccc;border-radius: 4px;height: 90%;width: 100%;font-size: 14px;" name="ab" id="<%= propertylist[i].property_id %>" ><img src="<%= propertylist[i].image %>" >
+              Price: <%= propertylist[i].property_price %><br><br>
+              <%= propertylist[i].property_area %><br><br><%= propertylist[i].style %><br><br>
+            	<i class="fa fa-bed"></i> <%= propertylist[i].bed %> 
+              <i class="fa fa-bath"> <%= propertylist[i].bath %></i> &#9949;<%= propertylist[i].feet %> sq. ft <br><br>
+
+            </button>
+          </form>
+            <br>  
+              
+            <br>
             
             </div>
             </div> 
+
+  <% } %>         
                     
 </section>
 
@@ -81,19 +95,8 @@
 <br>
 
 
-<center>
-<section>
-<div class="responsive" >
-            <div class="gallery">
-        
-            <button id="close-image" name="" ><img src="2.jpg">Price: 17,00000<br><br>Khilkhet,Dhaka<br><br>Appartment<br><br>
-            	<i class="fa fa-bed"></i>  7 <i class="fa fa-bath"> 4</i> &#9949; 80 sq. ft 
-            </button><br>
-            
-            </div>
-            </div>            
-</section>
-</center>
+
+ 
 
 
 <!-- Footer-->

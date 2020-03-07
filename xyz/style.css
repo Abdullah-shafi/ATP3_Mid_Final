@@ -127,7 +127,12 @@ div.gallery #close-image {
     font-size: 14px;
 
 }
-
+div.Customer_Profile2 {
+    width: 156px;
+    height: 975px;
+    background-color: #4CAF50;
+    float: left;
+}
 div.gallery img {
     width: 101%;
     height: 230px;

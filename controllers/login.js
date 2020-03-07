@@ -19,9 +19,24 @@ router.post('/', function(req, res){
 				res.cookie('username', req.body.uname);
 				res.redirect('home/Customer_Home');
 			}
+
 			else{
 				
-				res.redirect('/login');
+				
+				//res.redirect('/login');
+
+
+		req.checkBody('password','*username/password is incorrect').len(100, 600);
+   	    const err = req.validationErrors();
+
+   	    if(err)
+   	    {		
+
+                res.render('login', {errors: err});
+
+        }
+        else
+   		res.redirect('login');
 
 			}
 		});

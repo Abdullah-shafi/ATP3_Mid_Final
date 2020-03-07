@@ -36,32 +36,7 @@
 
 
   
-<div class="option">
-  <select id="p">
-    <option value="buy" >Buy</option>
-    <option value="rental">Rental</option>
-  </select>
 
-  <input id="p" placeholder="Location" type="text" name="location">
-  <input id="p" placeholder="Budget" type="number" name="budget" min="0">
-
-  <select id="p">
-     <option value="type">Type</option>
-    <option value="appartment">Appartment</option>
-    <option value="room">Room</option>
-     <option value="duplex">Duplex</option>
-      <option value="bachelor">Bachelor</option>
-  </select>
-
-   <input id="p" placeholder="Area (sq. ft.)" type="number" name="area">
-   <input id="p" placeholder="Bed" type="number" name="bed" min="1" max="10">
-
-   <button type="submit" id="search"><i class="fa fa-search"></i></button>
-  
-
-</div>
-
-<br>
 
 
 
@@ -71,19 +46,23 @@
  <center>
 <section >
 
-
+            <%= propertylist[0].title %>
         <div class="w3-content w3-section" style="max-width:500px">
             <img class="mySlides" src="/<%= propertylist[0].image %>"style="width:100%" >
               <img class="mySlides" src="/2.jpg %>"style="width:100%" >
         </div>
               
               Price: <%= propertylist[0].property_price %><br><br>
-              <%= propertylist[0].property_area %><br><br><%= propertylist[0].style %><br><br>
-              <i class="fa fa-bed"></i> <%= propertylist[0].bed %> 
-              <i class="fa fa-bath"> <%= propertylist[0].bath %></i> &#9949;<%= propertylist[0].feet %> sq. ft <br><br>
+              Area: <%= propertylist[0].property_area %><br><br>
+              Style: <%= propertylist[0].style %><br><br>
+              Bed: </i> <%= propertylist[0].bed %><br><br> 
+              Bath: <%= propertylist[0].bath %><br><br> 
+              Sqt_feet:<%= propertylist[0].feet %> sq. ft <br><br>
 
+            Floor:<%= propertylist[0].floor %>th<br><br>
+            Description:<%= propertylist[0].description %>
+            <br><br>
             
-            <br>
           <button style="background-color:green;height: 30px;width: 120px; " id="<%= propertylist[0].phone %>">Call</button>
               <button style="background-color:red;height: 30px;width: 120px; " id="<%= propertylist[0].email %>">Email</button>
            

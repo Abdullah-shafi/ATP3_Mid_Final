@@ -44,7 +44,7 @@ app.get('/', function(req, res){
 		    }
 		    else
 		    {
-			 res.render('Not_complete ');
+			 res.render('index', {propertylist: results});
 		    }
 			
 		});

@@ -2,8 +2,8 @@ var db = require('./db');
 
 module.exports ={
 	getAll:function(callback){
-		
-		var sql = "select * from property,customer,property_picture where property.username=customer.username and property.property_id=property_picture.property_id";
+		var a='active';
+		var sql = "select * from property,customer,property_picture where property.username=customer.username and property.property_id=property_picture.property_id and property.status='"+a+"'";
 		db.getResult(sql, null, function(results){
 			if(results.length > 0){
 				callback(results);
@@ -36,7 +36,8 @@ module.exports ={
 		});
 	},
 	getProperty:function(user,callback){
-		var sql = "select * from property,customer,property_picture where property.property_id=? and property.username=customer.username and property.property_id=property_picture.property_id ";
+		var a='active';
+		var sql = "select * from property,customer,property_picture where property.property_id=? and property.username=customer.username and property.property_id=property_picture.property_id  and property.status='"+a+"' ";
 		db.getResult(sql, [user.id], function(results){
 			if(results.length > 0){
 				callback(results);
@@ -46,7 +47,8 @@ module.exports ={
 		});
 	},
 	getProperty2:function(user,callback){
-		var sql = "select * from property,customer,property_picture where property.username=? and property.username=customer.username and property.property_id=property_picture.property_id  ";
+		var a='active';
+		var sql = "select * from property,customer,property_picture where property.username=? and property.username=customer.username and property.property_id=property_picture.property_id  and property.status='"+a+"' ";
 		db.getResult(sql, [user.username], function(results){
 			if(results.length > 0){
 				callback(results);
@@ -73,6 +75,43 @@ module.exports ={
 			if(status){
 				callback(true);
 			}else{
+				callback(false);
+			}
+		});
+	},
+
+	UpdateStatus:function(user, callback){
+		var s='sold';
+		var sql = "update property set status='"+s+"' where property_id=? and username=?";
+		db.execute(sql,[user.id,user.username], function(status){
+			if(status){
+				callback(true);
+			}
+			else{
+				callback(false);
+			}
+		});
+	},
+	UpdatePassword:function(user, callback){
+		var s='sold';
+		var sql = "update customer set password=? where username=?";
+		db.execute(sql,[user.npass,user.username], function(status){
+			if(status){
+				callback(true);
+			}
+			else{
+				callback(false);
+			}
+		});
+	},
+	UploadProperty:function(user, callback){
+		var s='Pending';
+		var sql = "Insert into property(property.username,property_price,property_area,p_type,style,bed,bath,feet,title,floor,description,status) VALUES (?,?,?,?,?,?,?,?,?,?,?,'Pending') ";
+		db.execute(sql,[user.username,user. property_price,user.property_area,user.type,user.style,user.bed,user.bath,user.feet,user.title,user.floor,user.description], function(status) {
+			if(status){
+				callback(true);
+			}
+			else{
 				callback(false);
 			}
 		});

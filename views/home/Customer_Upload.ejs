@@ -31,9 +31,9 @@
 <body>
 
 
-<div class="Customer_Profile">
+<div class="Customer_Profile2">
   
-  <img src="my_photo.JPG" alt="Avatar" class="profile">
+  <img src="<%= profile[0].c_image %>" alt="Avatar" class="profile">
 
   <br>
      <br>
@@ -54,11 +54,17 @@
   
     <h1 id="logo" align="center">Upload Property</h1><br>
 
-      <div >
-        <center>
-        
-                 <input type="Text" id="details" name="" placeholder="Palce"><br>
-                 <select id="detail">
+
+              <form action="/home/Customer_Upload" method="post" enctype="multipart/form-data">
+               <div >
+                  <center>
+
+          
+                  
+                   <input type="Text" id="details" name="title" placeholder="Title"><br>
+
+                 <input type="Text" id="details" name="place" placeholder="Place" required=""><br>
+                 <select id="detail" name="type">
                    
                    <option value="appartment">Appartment</option>
                    <option value="room">Room</option>
@@ -66,23 +72,29 @@
                    <option value="bachelor">Bachelor</option>
                 </select>
                 <br>
-                <select id="detail">
-                  <option value="buy">Sell</option>
-                  <option value="rental">Rental</option>
+                <select id="detail" name="style">
+                  <option value="sell">Sell</option>
+                  <option value="rent">Rent</option>
                 </select>
                 <br>
-                 <input type="Number" id="details" name="" placeholder="Price" min="0"><br>
-                 <input type="Number" id="details" name="" placeholder="Bed"><br>
-                 <input type="Number" id="details" name="" placeholder="Bath"><br>
-                 <input type="Number" id="details" name="" placeholder="Sq.ft"><br>
-                 <h4 align="center">Picture:<input type="file" name="fileToUpload" id="fileToUpload"></h4><br>
-                 <input type="button" onclick="window.location.href = 'Customer_Profile';" value="Upload"/><br>
-       
+                 <input type="Number" id="details" name="price" placeholder="Price" min="0" required=""><br>
+                 <input type="Number" id="details" name="bed" placeholder="Bed" required=""><br>
+                 <input type="Number" id="details" name="bath" placeholder="Bath" required=""><br>
+                 <input type="Number" id="details" name="feet" placeholder="Sq.ft"><br>
+                  <input type="Number" id="details" name="floor" placeholder="Floor" required=""><br>
+                  <input type="Text" id="details" name="description" placeholder="Description"><br>
+
+
+                 <h4 align="center">Picture:<input type="file" name="image" id="fileToUpload" required=""></h4>
+                 
+                 <button type="submit">Upload</button><br>
+
+            
          </center>
 
       </div>
      
-      
+       </form>
 
 </div>
 

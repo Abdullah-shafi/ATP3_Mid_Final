@@ -72,10 +72,10 @@
 
         <form method="post" action="/home/Property_details/<%= propertylist[i].property_id %>">
 
-            <button style="border: 3px solid #ccc;border-radius: 4px;height: 90%;width: 100%;font-size: 14px;" name="ab" id="<%= propertylist[i].property_id %>" ><img src="<%= propertylist[i].image %>" >
+           <button style="border: 3px solid #ccc;border-radius: 4px;height: 90%;width: 100%;font-size: 14px;" name="ab" id="<%= propertylist[i].property_id %>" ><img src="<%= propertylist[i].image %>" >
               Price: <%= propertylist[i].property_price %><br><br>
               <%= propertylist[i].property_area %><br><br><%= propertylist[i].style %><br><br>
-            	<i class="fa fa-bed"></i> <%= propertylist[i].bed %> 
+              <i class="fa fa-bed"></i> <%= propertylist[i].bed %> 
               <i class="fa fa-bath"> <%= propertylist[i].bath %></i> &#9949;<%= propertylist[i].feet %> sq. ft <br><br>
 
             </button>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Customer Profile</title>
+	<title>Customer Feedback</title>
 <link rel="stylesheet" href="./abc/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -47,25 +47,17 @@
 
 
 <div class="profile_details">
-   <form method="Post" action="/home/Customer_Feedback">
+  
     <h1 id="logo" align="center">Feedback</h1><br>
 
     
       <center>
-      <h2><% for(var i=0; i < feedback.length; i++){ %>
-        <span style="color:red;"><%=i+1%>. <%=feedback[i].from%></span> :   <%=feedback[i].msg%><h2> 
-            
-       
-        <% } %> 
-
-       
-        
-         
+          <form method="post" action="/home/Customer_Feedback">
             <input type="text" id="feedback" name="feedback" style="width: 400px; height:50px;" /><br><button>Send</button><br></td></tr>
-        
+        </form>
 
 </center>
-</form>
+
 </div>
 
 </body>

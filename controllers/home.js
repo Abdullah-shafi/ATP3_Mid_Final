@@ -81,9 +81,67 @@ router.get('/Customer_Profile', function(req, res){
 });
 
 
+
+
 //FeedBack
+
 router.get('/Customer_Feedback', function(req, res){
-	res.render('home/Customer_Feedback');
+
+	var user=
+     {
+     	username: req.cookies['username']
+     };
+	
+			        userModel.getFeedback(user,function(results){
+
+		
+			if(results.length > 0)
+			{
+			      res.render('home/Customer_Feedback', {feedback: results});
+		    }
+		     else
+		    {
+			 res.redirect('Customer_Feedback_empty');
+			   
+		    }
+		   
+		});
+	
+});
+
+
+//Feedback_empty
+
+router.get('/Customer_Feedback_empty', function(req, res){
+	
+		res.render('home/Customer_Feedback_empty');	       
+	
+});
+
+
+router.post('/Customer_Feedback', function(req, res){
+
+	var user=
+     {
+     	username: req.cookies['username'],
+     	msg: req.body.feedback
+     };
+	
+			   userModel.addFeedback(user,function(status){
+
+		
+			if(status)
+			{
+			      res.redirect('/home/Customer_Feedback');
+		    }
+		     else
+		    {
+			 res.redirect('Customer_Feedback_empty');
+			   
+		    }
+		   
+		});
+	
 });
 
 
@@ -251,7 +309,7 @@ router.get('/Customer_Delete/:property_id', function(req, res){
 		if(status){
 			res.redirect('/home/Customer_Delete');
 		}else{
-			res.redirect('home/Customer_Delete/'+req.params.id);
+			res.render('home/Customer_Delete/'+req.params.id);
 		}
 	});
 })

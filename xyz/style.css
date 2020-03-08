@@ -186,10 +186,10 @@ input.profile_button2
 
 
 div.profile_details {
-    width: 86%;
+   font-size: 15px;
     height: 650px;
+     float: center;
 
-     float: left;
 }
 
 h1#logo
@@ -255,7 +255,7 @@ table{
   color: #3f51b5;
   font-family: monospace;
   font-size: 25px;
-  margin-left: 154px;
+  margin-left: 283px;
 }
 th{
 

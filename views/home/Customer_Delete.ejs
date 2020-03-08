@@ -55,15 +55,17 @@
     <table >
   <tr>
     <th>Id</th>
-    <th >Name</th>
+    <th >Title</th>
     <th>Price</th>
+    <th>Area</th>
     <th>Option</th>
   </tr>
   
         <% for(var i=0; i < propertylist.length; i++){ %>
         <tr><td><%=propertylist[i].property_id%></td>
-            <td><%=propertylist[i].p_type%></td>
+            <td><%=propertylist[i].title%></td>
             <td><%=propertylist[i].property_price%></td>
+            <td><%=propertylist[i].property_area%></td>
             <td><input type="button"  onclick="window.location.href = '/home/Customer_Delete/<%= propertylist[i].property_id %>';" class="profile_button" value="Delete"/></td>
         </tr>
         
